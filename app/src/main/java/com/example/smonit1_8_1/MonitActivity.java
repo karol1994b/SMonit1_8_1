@@ -37,6 +37,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import static android.os.Environment.DIRECTORY_DOWNLOADS;
 
@@ -162,6 +163,8 @@ public class MonitActivity extends Activity {
 //                    buffer = new byte[1024];
                     buffer = new byte[4096];
 
+                    LinkedBlockingQueue<Number> lbq = new LinkedBlockingQueue<>(1024);
+
 //                    Number[] kontener0 = new Number[4096];
                     Number[] kontener0 = new Number[16384];
                     Number[] kontener1 = new Number[4096];
@@ -188,11 +191,14 @@ public class MonitActivity extends Activity {
                             }
 
 
+
+
                             for (int j = 0; j < splitted_data.length; j++) {
 
                                 if (Integer.parseInt(splitted_channels[j][0]) < 1000 && Integer.parseInt(splitted_channels[j][0]) > 10) {
-                                    kontener0[k] = Integer.parseInt(splitted_channels[j][0]);
-                                    Log.d(TAG, kontener0[k].toString());
+                                    lbq.add(Integer.parseInt(splitted_channels[j][0]));
+                                    //kontener0[k] = Integer.parseInt(splitted_channels[j][0]);
+                                   // Log.d(TAG, kontener0[k].toString());
                                     k++;
                                 }
 
@@ -220,6 +226,9 @@ public class MonitActivity extends Activity {
                         }
 
 
+                        for (int z = 0; z < lbq.size(); z++) {
+                            kontener0[z] = lbq.remove();
+                        }
 
                         XYSeries series0 = new SimpleXYSeries(
                                 Arrays.asList(kontener0),
