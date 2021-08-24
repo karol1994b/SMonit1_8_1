@@ -84,7 +84,7 @@ public class MonitActivity extends Activity {
         mySimpleXYPlot0 = (XYPlot) findViewById(R.id.plot0);
         mySimpleXYPlot1 = (XYPlot) findViewById(R.id.plot1);
         mySimpleXYPlot2 = (XYPlot) findViewById(R.id.plot2);
-        plot = (XYPlot) findViewById(R.id.plot);
+        //plot = (XYPlot) findViewById(R.id.plot);
 
 
         Bundle b = getIntent().getExtras();
@@ -267,15 +267,15 @@ public class MonitActivity extends Activity {
                         series1Format.setLegendIconEnabled(false);
                         series2Format.setLegendIconEnabled(false);
 
-                        mySimpleXYPlot0.setRangeBoundaries( 0, 700, BoundaryMode.FIXED);
+                        mySimpleXYPlot0.setRangeBoundaries( 0, 700, BoundaryMode.AUTO);
                         mySimpleXYPlot0.addSeries(series0, series0Format);
                         mySimpleXYPlot0.getBackgroundPaint().setAlpha(0);
 
-                        mySimpleXYPlot1.setRangeBoundaries( 0, 700, BoundaryMode.FIXED);
+                        mySimpleXYPlot1.setRangeBoundaries( 0, 700, BoundaryMode.AUTO);
                         mySimpleXYPlot1.addSeries(series1, series1Format);
                         mySimpleXYPlot1.getBackgroundPaint().setAlpha(0);
 
-                        mySimpleXYPlot2.setRangeBoundaries( 0, 700, BoundaryMode.FIXED);
+                        mySimpleXYPlot2.setRangeBoundaries( 0, 700, BoundaryMode.AUTO);
                         mySimpleXYPlot2.addSeries(series2, series2Format);
                         mySimpleXYPlot2.getBackgroundPaint().setAlpha(0);
 
@@ -286,18 +286,18 @@ public class MonitActivity extends Activity {
 
 
 
-                        ECGModel ecgSeries = new ECGModel(1000, 200, strInput);
+                        //ECGModel ecgSeries = new ECGModel(1000, 200, strInput);
 
-                        MyFadeFormatter formatter = new MyFadeFormatter(1000);
-                        formatter.setLegendIconEnabled(false);
-                        plot.addSeries(ecgSeries, formatter);
+//                        MyFadeFormatter formatter = new MyFadeFormatter(1000);
+//                        formatter.setLegendIconEnabled(false);
+//                        plot.addSeries(ecgSeries, formatter);
 
-                        plot.setLinesPerRangeLabel(3);
-                        plot.setRangeBoundaries( 0, 50, BoundaryMode.FIXED);
+//                        plot.setLinesPerRangeLabel(3);
+//                        plot.setRangeBoundaries( 0, 50, BoundaryMode.FIXED);
 
-                        ecgSeries.start(new WeakReference<>(plot.getRenderer(AdvancedLineAndPointRenderer.class)));
+//                        ecgSeries.start(new WeakReference<>(plot.getRenderer(AdvancedLineAndPointRenderer.class)));
 
-                        redrawer = new Redrawer(plot, 30, true);
+//                        redrawer = new Redrawer(plot, 30, true);
 
 
                         List<Plot> lista_wykresow = new ArrayList<>(3);

@@ -74,7 +74,7 @@
         android:orientation="vertical">
 
 
-        <com.androidplot.xy.XYPlot
+<!--        <com.androidplot.xy.XYPlot
             android:id="@+id/plot"
             style="@style/APDefacto.Dark"
             android:layout_width="match_parent"
@@ -82,7 +82,7 @@
             app:domainTitle="kolejne indeksy - iteracja X"
             app:rangeTitle="Napięcie-Kanał X"
             app:title="SYMULOWANE EKG"
-            app:titleTextSize="14dp" />
+            app:titleTextSize="14dp" />-->
 
 
         <com.androidplot.xy.XYPlot
